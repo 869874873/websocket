@@ -34,7 +34,7 @@
 }
 </style>
 
-<script src="js/sockjs-0.3.min.js"></script>
+<script src="http://cdn.sockjs.org/sockjs-0.3.min.js"></script>
 
 <script type="text/javascript">
 	var ws = null;
@@ -46,17 +46,15 @@
 		document.getElementById('echo').disabled = !connected;
 	}
 	function connect() {
-		console.log(url);
 		if (!url) {
 			alert('Select whether to use W3C WebSocket or SockJS');
 			return;
 		}
-		console.log(url.indexOf('sockjs'))
 		ws = (url.indexOf('sockjs') != -1) ? new SockJS(url, undefined, {
 			protocols_whitelist : transports
 		}) : new WebSocket(url);
-		console.log(ws)
 		ws.onopen = function() {
+			console.log(12)
 			setConnected(true);
 			log('Info: connection opened.');
 		};
