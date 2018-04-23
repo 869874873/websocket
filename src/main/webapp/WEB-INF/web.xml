@@ -1,7 +1,9 @@
-<!DOCTYPE web-app PUBLIC
- "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
- "http://java.sun.com/dtd/web-app_2_3.dtd" >
-
-<web-app>
-  <display-name>Archetype Created Web Application</display-name>
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:websocket="http://www.springframework.org/schema/websocket"
+	xsi:schemaLocation="  
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd  
+        http://www.springframework.org/schema/websocket http://www.springframework.org/schema/websocket/spring-websocket.xsd"
+	version="3.0">
+	<display-name>websocket</display-name>
 </web-app>
