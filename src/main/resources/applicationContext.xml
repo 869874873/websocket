@@ -4,6 +4,6 @@
 <websocket:handlers>  
     <websocket:mapping path="/websocket" handler="websocket"/>  
     <websocket:handshake-interceptors>  
-    <bean class="com.up.websocket.HandshakeInterceptor"/>  
+    <bean class="com.websocket.HandshakeInterceptor"/>  
     </websocket:handshake-interceptors>  
 </websocket:handlers>
