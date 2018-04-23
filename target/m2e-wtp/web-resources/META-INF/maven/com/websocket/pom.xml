@@ -59,6 +59,11 @@
 			<artifactId>spring-context-support</artifactId>
 			<version>4.3.5.RELEASE</version>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>4.3.5.RELEASE</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<finalName>websocket</finalName>
