@@ -34,7 +34,7 @@
 }
 </style>
 
-<script src="http://cdn.sockjs.org/sockjs-0.3.min.js"></script>
+<script src="js/sockjs-0.3.min.js"></script>
 
 <script type="text/javascript">
 	var ws = null;
@@ -46,28 +46,28 @@
 		document.getElementById('echo').disabled = !connected;
 	}
 	function connect() {
-		alert("url:" + url);
+		console.log(url);
 		if (!url) {
 			alert('Select whether to use W3C WebSocket or SockJS');
 			return;
 		}
-
+		console.log(url.indexOf('sockjs'))
 		ws = (url.indexOf('sockjs') != -1) ? new SockJS(url, undefined, {
 			protocols_whitelist : transports
 		}) : new WebSocket(url);
-
+		console.log(ws)
 		ws.onopen = function() {
 			setConnected(true);
 			log('Info: connection opened.');
 		};
-		ws.onmessage = function(event) {
+		/* ws.onmessage = function(event) {
 			log('Received: ' + event.data);
 		};
 		ws.onclose = function(event) {
 			setConnected(false);
 			log('Info: connection closed.');
 			log(event);
-		};
+		}; */
 	}
 
 	function disconnect() {
@@ -89,7 +89,6 @@
 	}
 
 	function updateUrl(urlPath) {
-		console.log(urlPath)
 		if (urlPath.indexOf('sockjs') != -1) {
 			url = urlPath;
 			document.getElementById('sockJsTransportSelect').style.visibility = 'visible';
@@ -130,10 +129,10 @@
 	<div>
 		<div id="connect-container">
 			<input id="radio1" type="radio" name="group1"
-				onclick="updateUrl('/spring-websocket-uptest/websocket');">
+				onclick="updateUrl('/websocket/websocket');">
 			<label for="radio1">W3C WebSocket</label> <br> <input
 				id="radio2" type="radio" name="group1"
-				onclick="updateUrl('/spring-websocket-uptest/websocket');">
+				onclick="updateUrl('/websocket/sockjs');">
 			<label for="radio2">SockJS</label>
 			<div id="sockJsTransportSelect" style="visibility: hidden;">
 				<span>SockJS transport:</span> <select
