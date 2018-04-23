@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:websocket="http://www.springframework.org/schema/websocket"
-	xsi:schemaLocation="  
-        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd  
-        http://www.springframework.org/schema/websocket http://www.springframework.org/schema/websocket/spring-websocket.xsd"
-	version="3.0">
+<web-app
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.0">
 	<display-name>websocket</display-name>
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
