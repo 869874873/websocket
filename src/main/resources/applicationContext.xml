@@ -4,12 +4,12 @@
        xsi:schemaLocation="  
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd  
         http://www.springframework.org/schema/websocket http://www.springframework.org/schema/websocket/spring-websocket.xsd">
-	<bean id="websocket" class="com.websocket.controller.WebsocketEndPoint" />
+	<bean id="websocket" class="com.websocket.controller.WebSocketHandler" />
 
 	<websocket:handlers>
 		<websocket:mapping path="/websocket" handler="websocket" />
 		<websocket:handshake-interceptors>
-			<bean class="com.websocket.HandshakeInterceptor" />
+			<bean class="com.websocket.interceptor.WebSocketHandshakeInterceptor" />
 		</websocket:handshake-interceptors>
 	</websocket:handlers>
 </beans>
