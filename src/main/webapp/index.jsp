@@ -89,6 +89,7 @@
         }  
   
         function updateUrl(urlPath) {  
+        	console.log(urlPath)
             if (urlPath.indexOf('sockjs') != -1) {  
                 url = urlPath;  
                 document.getElementById('sockJsTransportSelect').style.visibility = 'visible';  
@@ -127,7 +128,7 @@
     Javascript and reload this page!</h2></noscript>  
 <div>  
     <div id="connect-container">  
-        <input id="radio1" type="radio" name="group1" onclick="updateUrl(''/spring-websocket-uptest/websocket');">  
+        <input id="radio1" type="radio" name="group1" onclick="updateUrl('/spring-websocket-uptest/websocket');">  
             <label for="radio1">W3C WebSocket</label>  
         <br>  
         <input id="radio2" type="radio" name="group1" onclick="updateUrl('/spring-websocket-uptest/websocket');">  
