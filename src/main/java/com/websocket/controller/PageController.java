@@ -30,7 +30,7 @@ public class PageController {
         System.out.println(username + "登录");  
         HttpSession session = request.getSession();  
         session.setAttribute("SESSION_USERNAME", username);  
-        response.sendRedirect("index.jsp");  
+        response.sendRedirect("websocket.jsp");  
     }  
   
     @RequestMapping("/send")  
