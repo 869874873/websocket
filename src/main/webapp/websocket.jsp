@@ -20,7 +20,7 @@
 		} else if ('MozWebSocket' in window) {
 			//Websocket的连接  
 			websocket = new MozWebSocket(
-					"ws://localhost:8080/websocket/websocket/socketServer.do");//SockJS对应的地址  
+					"ws://" + window.location.host + "<%= request.getContextPath() %>/ws");//SockJS对应的地址  
 		} else {
 			//SockJS的连接  
 			websocket = new SockJS(
@@ -30,13 +30,18 @@
 		websocket.onmessage = onMessage;
 		websocket.onerror = onError;
 		websocket.onclose = onClose;
-
+		var str = "";
 		function onOpen(openEvt) {
 			//alert(openEvt.Data);  
 		}
 
 		function onMessage(evt) {
-			alert(evt.data);
+			var showMsg = document.getElementById('showMsg');
+			showMsg.scrollTop = showMsg.scrollHeight;
+			str += evt.data;
+			document.getElementById("showMsg").value = str;
+			console.log(str)
+			//alert(evt.data);
 		}
 		function onError() {
 		}
@@ -47,7 +52,8 @@
 			if (websocket.readyState == websocket.OPEN) {
 				var msg = document.getElementById("inputMsg").value;
 				websocket.send(msg);//调用后台handleTextMessage方法  
-				alert("发送成功!");
+				console.log("发送成功!");
+				document.getElementById("inputMsg").value = "";
 			} else {
 				alert("连接失败!");
 			}
@@ -57,6 +63,8 @@
 			websocket.onclose();
 		}
 	</script>
+	<textarea rows="3" cols="100" id="showMsg" name="showMsg" style = "height: 200px;overflow-y: scroll;" readonly="readonly"></textarea>
+	<br />
 	请输入：
 	<textarea rows="3" cols="100" id="inputMsg" name="inputMsg"></textarea>
 	<button onclick="doSend();">发送</button>
