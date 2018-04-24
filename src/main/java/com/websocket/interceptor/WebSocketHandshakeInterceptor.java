@@ -15,7 +15,7 @@ import java.util.Map;
  * WebSocket握手拦截器 
  */  
 public class WebSocketHandshakeInterceptor implements HandshakeInterceptor {  
-    @SuppressWarnings("unused")
+	@SuppressWarnings("unused")
 	private final static Logger LOGGER = LoggerFactory.getLogger(WebSocketHandshakeInterceptor.class);  
   
     public boolean beforeHandshake(ServerHttpRequest request, ServerHttpResponse serverHttpResponse, WebSocketHandler webSocketHandler, Map<String, Object> attributes) throws Exception {  

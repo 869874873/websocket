@@ -16,7 +16,7 @@
 		if ('WebSocket' in window) {
 			//Websocket的连接  
 			websocket = new WebSocket(
-					"ws://localhost:8080/websocket/websocket/socketServer.do");//WebSocket对应的地址  
+					"ws://" + window.location.host + "<%= request.getContextPath() %>/ws");//WebSocket对应的地址  
 		} else if ('MozWebSocket' in window) {
 			//Websocket的连接  
 			websocket = new MozWebSocket(
