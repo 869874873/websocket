@@ -1,16 +1,16 @@
-package com.websoket.controller;  
+package com.websocket.controller;  
   
-import org.springframework.context.annotation.Bean;  
-import org.springframework.stereotype.Controller;  
-import org.springframework.web.bind.annotation.RequestMapping;  
-import org.springframework.web.bind.annotation.ResponseBody;  
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.socket.TextMessage;
 
-import com.websocket.controller.WebSocketHandler;
-
-import javax.servlet.http.HttpServletRequest;  
-import javax.servlet.http.HttpServletResponse;  
-import javax.servlet.http.HttpSession;  
+import com.websocket.handler.WebSocketHandler;  
   
 /** 
  * 测试类 
@@ -30,7 +30,7 @@ public class PageController {
         System.out.println(username + "登录");  
         HttpSession session = request.getSession();  
         session.setAttribute("SESSION_USERNAME", username);  
-        response.sendRedirect("websocket.jsp");  
+        response.sendRedirect("index.jsp");  
     }  
   
     @RequestMapping("/send")  

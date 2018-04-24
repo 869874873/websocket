@@ -1,4 +1,4 @@
-package com.websocket.controller;
+package com.websocket.handler;
 
 import org.slf4j.Logger;  
 import org.slf4j.LoggerFactory;  

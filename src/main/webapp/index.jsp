@@ -16,15 +16,15 @@
 		if ('WebSocket' in window) {
 			//Websocket的连接  
 			websocket = new WebSocket(
-					"ws://localhost:8080/ws/websocket/socketServer.do");//WebSocket对应的地址  
+					"ws://localhost:8080/websocket/websocket/socketServer.do");//WebSocket对应的地址  
 		} else if ('MozWebSocket' in window) {
 			//Websocket的连接  
 			websocket = new MozWebSocket(
-					"ws://localhost:8080/ws/websocket/socketServer.do");//SockJS对应的地址  
+					"ws://localhost:8080/websocket/websocket/socketServer.do");//SockJS对应的地址  
 		} else {
 			//SockJS的连接  
 			websocket = new SockJS(
-					"http://localhost:8080/ws/sockjs/socketServer.do"); //SockJS对应的地址  
+					"http://localhost:8080/websocket/sockjs/socketServer.do"); //SockJS对应的地址  
 		}
 		websocket.onopen = onOpen;
 		websocket.onmessage = onMessage;
