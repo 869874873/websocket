@@ -40,7 +40,6 @@
 			showMsg.scrollTop = showMsg.scrollHeight;
 			str += evt.data;
 			document.getElementById("showMsg").value = str;
-			console.log(str)
 			//alert(evt.data);
 		}
 		function onError() {
@@ -52,7 +51,6 @@
 			if (websocket.readyState == websocket.OPEN) {
 				var msg = document.getElementById("inputMsg").value;
 				websocket.send(msg);//调用后台handleTextMessage方法  
-				console.log("发送成功!");
 				document.getElementById("inputMsg").value = "";
 			} else {
 				alert("连接失败!");

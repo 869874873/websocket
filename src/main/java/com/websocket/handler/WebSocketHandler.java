@@ -8,7 +8,8 @@ import org.springframework.web.socket.WebSocketSession;
 import org.springframework.web.socket.handler.TextWebSocketHandler;  
   
 import java.io.IOException;  
-import java.util.ArrayList;  
+import java.util.ArrayList;
+
   
 /** 
  * Websocket处理器 
@@ -30,11 +31,12 @@ public class WebSocketHandler extends TextWebSocketHandler {
      */  
     @Override  
     protected void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {  
-        String username = (String) session.getAttributes().get("WEBSOCKET_USERNAME");  
+        String username = (String) session.getAttributes().get("WEBSOCKET_USERNAME");
+        System.out.println(username);
         // 获取提交过来的消息详情  
         LOGGER.debug("收到用户 " + username + "的消息:" + message.toString());  
         //回复一条信息，  
-        session.sendMessage(new TextMessage("reply msg:" + message.getPayload() + "\n"));  
+        session.sendMessage(new TextMessage(username+ ":" + message.getPayload() + "\n"));  
     }  
   
   
