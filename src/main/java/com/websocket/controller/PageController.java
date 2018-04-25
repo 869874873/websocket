@@ -29,7 +29,6 @@ public class PageController {
         String username = request.getParameter("username"); 
         if(username.equals(new String(username.getBytes("ISO-8859-1"),"ISO-8859-1")))
         	username = new String(username.getBytes("ISO-8859-1"),"UTF-8");
-        System.out.println(username + "登录");  
         HttpSession session = request.getSession();  
         session.setAttribute("SESSION_USERNAME", username);  
         response.sendRedirect("websocket.jsp");  

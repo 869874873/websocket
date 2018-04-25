@@ -13,17 +13,17 @@ import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
 
 @ServerEndpoint(value = "/websocket/chat")
-public class WebsocketService {
+public class ChatEntpoint {
 	private static final String GUEST_PREFIX = "访客";
 	private static final AtomicInteger connectionIds = new AtomicInteger(0);
 	// 定义一个集合，用于保存所有接入的WebSocket客户端
-	private static final Set<WebsocketService> clientSet = new CopyOnWriteArraySet<>();
+	private static final Set<ChatEntpoint> clientSet = new CopyOnWriteArraySet<>();
 	// 定义一个成员变量，记录WebSocket客户端的聊天昵称
 	private final String nickname;
 	// 定义一个成员变量，记录与WebSocket之间的会话
 	private Session session;
 
-	public WebsocketService() {
+	public ChatEntpoint() {
 		nickname = GUEST_PREFIX + connectionIds.getAndIncrement();
 	}
 
@@ -67,7 +67,7 @@ public class WebsocketService {
 	// 实现广播消息的工具方法
 	private static void broadcast(String msg) {
 		// 遍历服务器关联的所有客户端
-		for (WebsocketService client : clientSet) {
+		for (ChatEntpoint client : clientSet) {
 			try {
 				synchronized (client) {
 					// 发送消息
