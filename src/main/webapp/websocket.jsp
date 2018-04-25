@@ -50,8 +50,13 @@
 		function doSend() {
 			if (websocket.readyState == websocket.OPEN) {
 				var msg = document.getElementById("inputMsg").value;
-				websocket.send(msg);//调用后台handleTextMessage方法  
-				document.getElementById("inputMsg").value = "";
+				if(msg != ""){
+					websocket.send(msg);//调用后台handleTextMessage方法  
+					document.getElementById("inputMsg").value = "";
+				}else{
+					alert("不能发送空白信息")
+				}
+				
 			} else {
 				alert("连接失败!");
 			}

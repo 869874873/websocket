@@ -34,7 +34,8 @@ public class PageController {
         response.sendRedirect("websocket.jsp");  
     }  
   
-    @RequestMapping("/send")  
+    @SuppressWarnings("static-access")
+	@RequestMapping("/send")  
     @ResponseBody  
     public String send(HttpServletRequest request) {  
         String username = request.getParameter("username");  
