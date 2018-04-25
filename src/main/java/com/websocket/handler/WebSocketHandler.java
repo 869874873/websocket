@@ -32,7 +32,6 @@ public class WebSocketHandler extends TextWebSocketHandler {
     @Override  
     protected void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {  
         String username = (String) session.getAttributes().get("WEBSOCKET_USERNAME");
-        System.out.println(username);
         // 获取提交过来的消息详情  
         LOGGER.debug("收到用户 " + username + "的消息:" + message.toString());  
         //回复一条信息，  
