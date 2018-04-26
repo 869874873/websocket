@@ -49,7 +49,8 @@ public class WebSocketHandler extends TextWebSocketHandler {
 		users.add(session);
 		String username = (String) session.getAttributes().get("WEBSOCKET_USERNAME");
 		LOGGER.info("用户 " + username + " Connection Established");
-		System.out.println("用户 " + username + " Connection Established");
+		String message = String.format("【%s %s】\n", username, "加入了聊天室！");
+		sendMessageToUsers(new TextMessage(message));
 		// session.sendMessage(new TextMessage(username + " connect"));
 		// session.sendMessage(new TextMessage("hello wellcome"));
 	}
@@ -114,7 +115,6 @@ public class WebSocketHandler extends TextWebSocketHandler {
 	public static void sendMessageToUser(String userName, TextMessage message) {
 		for (WebSocketSession user : users) {
 			if (user.getAttributes().get("WEBSOCKET_USERNAME").equals(userName)) {
-				System.out.println("123");
 				try {
 					synchronized (user) {
 						user.sendMessage(message);
